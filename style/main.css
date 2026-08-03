@@ -1,0 +1,340 @@
+@import url("https://cloudflare.com");
+
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0px;
+  min-height: 100%;
+}
+
+/* 포커스 스타일 */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 웹 폰트 설정 */
+@font-face {
+    font-family: 'p_b';
+    src: url(../font/Pretendard-Bold.woff2);
+}
+@font-face {
+    font-family: 'p_m';
+    src: url(../font/Pretendard-Medium.woff2);
+}
+@font-face {
+    font-family: 'p_r';
+    src: url(../font/Pretendard-Regular.woff2);
+}
+@font-face {
+    font-family: 'p_s';
+    src: url(../font/Pretendard-SemiBold.woff2);
+}
+@font-face {
+    font-family: 'p_l';
+    src: url(../font/Pretendard-Light.woff2);
+}
+
+/* -----------------------------------------
+   헤더 영역 스타일
+----------------------------------------- */
+
+/* 전체 헤더 레이아웃 영역 (.header_i) */
+header .header_i {
+    display: flex;
+    width: 100%;             
+    max-width: 1200px;       
+    height: 70px;            
+    margin: 0 auto;          
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 40px;         
+    position: absolute;      
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background-color: transparent; 
+}
+
+/* 로고 영역 (.logo) */
+header .header_i .logo {
+    position: relative;
+    width: 130px;            
+    height: 25px;
+}
+
+/* 네비게이션 컨테이너 */
+header .header_i nav {
+    position: relative;
+}
+
+/* ul: 리스트 스타일 제거 후 가로 나열 */
+header .header_i nav ul {
+    display: flex;
+    align-items: center;
+    gap: 32px;               
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* li */
+header .header_i nav ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 메뉴 내부 링크 글자 스타일 */
+header .header_i nav ul li a {
+    display: block;
+    font-family: 'p_m', sans-serif; 
+    font-weight: 500;
+    font-size: 15px;
+    color: #000000;          
+    letter-spacing: -0.5px;
+    transition: color 0.2s ease;
+}
+
+/* 메뉴 버튼 마우스 오버 효과 */
+header .header_i nav ul li a:hover {
+    color: #282828;          
+}
+
+/* 우측 아이콘 그룹 영역 (.login_container) */
+header .header_i .login_container {
+    display: flex;
+    align-items: center;
+    gap: 24px;               /* 하트와 로그인 버튼 사이 간격 */
+    position: relative;
+}
+
+/* 관심 목록 하트 이미지 */
+header .header_i .login_container .heart {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* 🖤 마이페이지 로그인 버튼 영역 (검은색 알약형 박스 추가) */
+header .header_i .login_container .login_btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;                /* 사람 아이콘과 '로그인' 텍스트 사이 간격 */
+    position: relative;
+    cursor: pointer;
+    
+    /* 디자인 이미지 스타일 반영 */
+    background-color: #000000; /* 검은색 배경 */
+    padding: 8px 16px;         /* 상하좌우 여백으로 알약 크기 조절 */
+    border-radius: 30px;       /* 양끝을 완전 둥글게 리디우스 적용 */
+    transition: background-color 0.2s ease;
+}
+
+/* 로그인 버튼 마우스 오버 효과 */
+header .header_i .login_container .login_btn:hover {
+    background-color: #282828; /* 마우스 올리면 부드럽게 짙은 회색으로 변조 */
+}
+
+/* 마이페이지 유저 이미지 (아이콘 색상이 흰색인지 확인해 주세요!) */
+header .header_i .login_container .login_btn .user {
+    position: relative;
+    width: 16px;
+    height: 16px;
+}
+
+/* 로그인 텍스트 영역 */
+header .header_i .login_container .login_btn .login {
+    position: relative;
+}
+
+/* 로그인 링크 글자 스타일 (흰색으로 변경) */
+header .header_i .login_container .login_btn .login a {
+    font-family: 'p_m', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #ffffff;          /* 검은 배경에 맞춰 흰색 글씨로 변경 */
+}
+/* //////////////////////////////////////////////////////////////////////// */
+
+.hero_section {
+    width: 100%;
+    min-width: 1920px; 
+    height: 1100px;
+    display: flex;
+    background-image: url(../images/banner/h_pc.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+/* 콘텐츠 정렬용 내부 프레임 */
+.hero_section .hero_i {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 547px;
+    margin-top: 440px;
+    margin-left: 275px;
+}
+
+/* 1. 상단 서브 타이틀 영역 */
+.hero_section .hero_i .subtitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* 📉 바깥 간격 축소 (24px) */
+    margin-bottom: 24px; 
+}
+
+/* 주황색 포인트 점 */
+.hero_section .hero_i .subtitle .dot {
+    width: 9px;
+    height: 9px;
+    background-color: #FE8A03;
+    border-radius: 50%;
+}
+
+/* 책임 있는 입양 문화~ 글씨 */
+.hero_section .hero_i .subtitle .sub_text {
+    font-family: 'p_r', sans-serif;
+    font-weight: 400;
+    color: #f5f5f5;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+/* 2. 메인 텍스트 콘텐츠 영역 (타이틀 + 설명글) */
+.hero_section .hero_i .hero_content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    /* 📉 바깥 간격 축소 (48px) */
+    margin-bottom: 48px; 
+}
+
+/* 메인 대형 타이틀 박스 */
+.hero_section .hero_i .hero_content .main_title_box {
+    width: 100%;
+    /* 📉 바깥 간격 축소 (16px) */
+    margin-bottom: 16px; 
+}
+
+/* 한 번의 만남이, 평생의 가족이 됩니다. */
+.hero_section .hero_i .hero_content .main_title_box .main_title {
+    font-family: 'p_b', sans-serif;
+    font-weight: 700;
+    color: #f5f5f5;
+    font-size: 64px;
+    line-height: 70.4px; 
+}
+
+/* 포인핸드는 새로운 가족을~ 설명글 박스 */
+.hero_section .hero_i .hero_content .desc_box {
+    width: 100%;
+}
+
+/* 서브 설명 텍스트 스타일 */
+.hero_section .hero_i .hero_content .desc_box .desc_text {
+    font-family: 'p_m', sans-serif;
+    font-weight: 500;
+    color: #f5f5f5;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+/* 🔄 [원복] br 줄바꿈 간격은 기존 그대로 5px 유지 */
+.hero_section .hero_i .hero_content br {
+    content: "";
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* 3. 하단 버튼 그룹 영역 (CTA 버튼 그룹) */
+.hero_section .hero_i .hero_btn_group {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+/* [공통] 버튼 내부 글씨 스타일 정의 */
+.hero_section .hero_i .hero_btn_group .btn_text {
+    font-family: 'p_b', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+/* 🟠 주황색 메인 버튼 스타일 (.btn1) */
+.hero_section .hero_i .hero_btn_group .btn1 {
+    display: flex;
+    width: 220px; 
+    height: 51px;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 20px;
+    background-color: #FE8A03; 
+    border-radius: 64px;
+    transition: background-color 0.2s ease;
+}
+
+.hero_section .hero_i .hero_btn_group .btn1:hover {
+    background-color: #e57c02; 
+}
+
+.hero_section .hero_i .hero_btn_group .btn1 .btn_text {
+    color: #ffffff; 
+}
+
+/* 화살표 아이콘 영역 */
+.hero_section .hero_i .hero_btn_group .btn1 .arrow_icon {
+    position: relative;
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+}
+
+/* 화살표 이미지 (.arrow) */
+.hero_section .hero_i .hero_btn_group .btn1 .arrow_icon .arrow {
+    width: 100%;
+    height: auto;
+}
+
+/* ⚪ 반투명 가이드 보기 버튼 스타일 (.btn2) */
+.hero_section .hero_i .hero_btn_group .btn2 {
+    display: flex;
+    width: 196px;
+    height: 51px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    border-radius: 64px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: background-color 0.2s ease;
+}
+
+.hero_section .hero_i .hero_btn_group .btn2:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.hero_section .hero_i .hero_btn_group .btn2 .btn_text {
+    color: #ffffff; 
+}
