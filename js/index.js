@@ -87,14 +87,17 @@ document.addEventListener('DOMContentLoaded', () => {
       e.stopPropagation();
       btn.classList.toggle('is-active');
       const img = btn.querySelector('img');
+
       if (img) {
-        if (btn.classList.contains('is-active')) {
-          img.setAttribute('src', './images/1.pc/icon/card_heart_on.svg');
-          img.src = './images/1.pc/icon/card_heart_on.svg';
-        } else {
-          img.setAttribute('src', './images/1.pc/icon/card_heart_off.svg');
-          img.src = './images/1.pc/icon/card_heart_off.svg';
-        }
+        const isMobile = window.matchMedia('(max-width: 563px)').matches;
+        const iconDirectory = isMobile
+          ? './images/3.mobile/icon_m'
+          : './images/1.pc/icon';
+        const iconName = btn.classList.contains('is-active')
+          ? 'card_heart_on.svg'
+          : 'card_heart_off.svg';
+
+        img.src = `${iconDirectory}/${iconName}`;
       }
     });
   });
