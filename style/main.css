@@ -19,10 +19,15 @@
   align-items: center;
   justify-content: space-between;
   border-radius: var(--radius-pill);
-  background: color-mix(in srgb, var(--color-white) 20%, transparent);
+  background: color-mix(in srgb, var(--color-white) 70%, transparent);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow-md);
   pointer-events: auto;
+  transition: background-color 0.3s ease;
+}
+
+.site-header.scrolled-past-hero .header-inner {
+  background: color-mix(in srgb, var(--color-white) 50%, transparent);
 }
 
 .brand img {
@@ -48,6 +53,7 @@
 
 .login-button {
   display: none;
+  /* background-color: var(--color-brand); */
 }
 
 /* Footer */
@@ -259,6 +265,13 @@ p {
   color: var(--color-white);
   background: var(--gradient-brand-horizontal);
 }
+.button-secondary{
+  color: var(--color-text-default);
+  background: color-mix(in srgb, var(--color-white) 20%, transparent);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-md);
+
+}
 
 .button-glass {
   color: var(--color-white);
@@ -357,13 +370,14 @@ p {
   min-height: 321px;
   padding: var(--space-xl);
   border-radius: var(--radius-xl);
-  background: var(--color-white);
+  background: var(--color-surface-warm);
   box-shadow: var(--shadow-md);
   transition: transform .25s;
 }
 
 .quick-card:hover {
   transform: translateY(-4px);
+  border-color: var(--color-brand);
 }
 
 .quick-icon {
@@ -426,7 +440,7 @@ p {
   padding: var(--space-6xl) var(--space-xl);
   text-align: center;
   color: var(--color-text-strong);
-  background-color: var(--color-surface-warm);
+  background-color: #ffffff;
   background-image:
     url('../images/3.mobile/ai_icon_m/Ellipse1.svg'),
     /* 1번째: 절단면이 왼쪽인 반원 -> 화면 우측에 붙임 */
@@ -484,6 +498,11 @@ p {
 }
 .ai-content .eyebrow{
   color: var(--color-brand);
+}
+
+.ai-content .btn{
+  display: flex;
+  gap: 24px;
 }
 
 .ai-content .button {
@@ -601,9 +620,10 @@ p {
 }
 
 .card-body {
-  padding: 16px 22px;
+  padding: 0 22px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   flex: 1;
 }
 
@@ -616,7 +636,7 @@ p {
 
 .pet-card .text1 h3 {
   margin: 0;
-  font-size: var(--font-size-16);
+  font-size: 20px;
   font-weight: var(--font-weight-bold);
   color: var(--color-text-strong);
   white-space: nowrap;
@@ -627,8 +647,8 @@ p {
   align-items: center;
   gap: 3px;
   margin-bottom: 16px;
-  font-size: var(--font-size-13);
-  color: var(--color-text-muted);
+  font-size: 16px;
+  color: var(--color-text-default);
 }
 
 .pet-card .text2 p {
@@ -662,8 +682,8 @@ p {
 }
 
 .pet-card .text3 span {
-  font-size: var(--font-size-13);
-  color: var(--color-text-muted);
+  font-size: 16px;
+  color: var(--color-text-default);
 }
 
 .pet-card .text4 {
@@ -755,6 +775,7 @@ p {
   padding-top: 140px;
   padding-bottom: 140px;
   background: var(--color-white);
+  overflow-x: hidden;
 }
 
 .community-container {
@@ -765,18 +786,22 @@ p {
   gap: 92px;
 }
 
-/* Left Text Box */
+/* Left Text Box (Vertically Centered & Layered Above Cards) */
 .community-info {
+  position: relative;
+  z-index: 10;
+  background: var(--color-white);
   width: 400px;
   height: 407px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   flex-shrink: 0;
 }
 
 .community-info h2 {
   font-size: var(--font-size-32);
-  line-height: 1.3;
+  line-height: 1.35;
   margin: 0 0 16px 0;
   color: var(--color-text-strong);
 }
@@ -789,14 +814,14 @@ p {
   font-size: var(--font-size-14);
   color: var(--color-text-muted);
   line-height: 1.6;
-  margin: 0 0 64px 0;
+  margin: 0 0 48px 0;
 }
 
 .toggle-row {
   display: flex;
   align-items: flex-end;
   gap: 16px;
-  margin-bottom: 128px;
+  margin-bottom: 48px;
 }
 
 /* Toggle Switch Bar */
@@ -867,13 +892,15 @@ p {
 }
 
 .community-nav {
+  position: relative;
+  z-index: 20;
   display: flex;
-  gap: 12px;
-  margin-top: auto;
+  gap: 14px;
 }
 
-/* Right Content Cards */
 .community-content {
+  position: relative;
+  z-index: 1;
   flex: 1;
   min-width: 0;
   height: 407px;
@@ -888,10 +915,10 @@ p {
 }
 
 .card-viewport {
-  width: 669px;
+  position: relative;
+  width: max(669px, calc(100vw - 492px));
   height: 407px;
   overflow: hidden;
-  border-radius: var(--radius-lg);
 }
 
 .card-track {
@@ -901,12 +928,12 @@ p {
   width: max-content;
 }
 
-/* Campaign Card */
+/* Campaign Card (669 * 407, Radius 32px) */
 .campaign-card {
   width: 669px;
   height: 407px;
   flex-shrink: 0;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-2xl);
   overflow: hidden;
 }
 
@@ -916,42 +943,34 @@ p {
   object-fit: cover;
 }
 
-/* Story Group: Video + Shorts */
-.story-group {
+/* Story Video Card (669 * 407, Radius 32px) */
+.story-video-card {
   width: 669px;
   height: 407px;
-  display: flex;
-  gap: 16px;
   flex-shrink: 0;
-}
-
-.video-card {
-  width: 385px;
-  height: 407px;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-2xl);
   overflow: hidden;
-  flex-shrink: 0;
-  position: relative;
 }
 
-.video-card img {
+.story-video-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.shorts-group {
-  width: 268px;
+/* Shorts Container (669 * 407, Gap 10px, Shorts Card 216 * 407, Radius 32px) */
+.shorts-container {
+  width: 669px;
   height: 407px;
   display: flex;
-  gap: 11px;
+  gap: 10px;
   flex-shrink: 0;
 }
 
 .shorts-card {
-  width: 82px;
+  width: 216px;
   height: 407px;
-  border-radius: 12px;
+  border-radius: var(--radius-2xl);
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -1052,7 +1071,7 @@ p {
   overflow: hidden;
   display: grid;
   padding: var(--space-6xl) var(--space-xl);
-  background: var(--color-surface-warm);
+  background: #ffffff;
   isolation: isolate;
 }
 
@@ -1063,7 +1082,7 @@ p {
   z-index: -1;
   /* 맨 뒤로 배치 */
   border-radius: 50%;
-  background: var(--color-surface-peach);
+  background: #ffffff;
   transition: transform .35s;
 }
 
@@ -1559,7 +1578,7 @@ p {
   .toggle-switch.is-story .toggle-slider { transform: translateX(62px); }
   .toggle-btn { height: 28px; line-height: 28px; font-size: var(--font-size-13); }
   .community-nav { display: none; }
-  .card-viewport { overflow: visible; }
+  .card-viewport { overflow: hidden; }
   .campaign-card, .story-video-card, .shorts-container { width: 312px; height: 190px; flex-basis: 312px; border-radius: var(--radius-lg); }
   .story-panel .card-track { flex-direction: column; gap: var(--space-lg); }
   .shorts-container { display: flex; gap: var(--space-xs); }
@@ -1991,24 +2010,25 @@ p {
 
   /* 커뮤니티 전체 컨테이너 레이아웃 및 여백 정의 */
   .community-container {
-    max-width: none;
-    width: calc(100% - max(calc((100% - 1368px) / 2), var(--space-5xl)));
-    margin-left: max(calc((100% - 1368px) / 2), var(--space-5xl));
+    max-width: 1368px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
     gap: 92px;
   }
 
   /* 본문 영역 설정 */
   .community-content {
-    overflow: visible;
+    flex: 1;
     min-width: 0;
+    height: 407px;
   }
 
   /* 카드 뷰포트 (슬라이더/캐러셀 영역) */
   .card-viewport {
-    width: 669px;
+    width: max(669px, calc(100vw - 492px));
     height: 407px;
-    overflow: visible;
-    border-radius: 0;
+    overflow: hidden;
   }
 
   /* 카드 트랙 간격 */
@@ -2039,8 +2059,8 @@ p {
   .shorts-container {
     display: flex;
     gap: 10px;
-    overflow: visible;
-    border-radius: 0;
+    overflow: hidden;
+    border-radius: var(--radius-2xl);
   }
 
   .shorts-container .shorts-card {
@@ -2073,7 +2093,7 @@ p {
     padding: 10px 16px;
     box-shadow: none;
     border: 1px solid var(--color-border-light);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-2xl);
   }
 
   .quick-card .quick-icon {

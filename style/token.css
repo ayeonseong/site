@@ -38,6 +38,8 @@
   --color-surface-pink-light: #FFE6D4;
   --color-border-light: #EDE7E0;
   --color-border-default: #D9D9D9;
+  --color-banner-point1: #D6F3E6;
+  --color-banner-point2: #FFF4CC;
 
   /* Shadow */
   --shadow-color-strong: rgb(0 0 0 / 25%);
@@ -102,7 +104,7 @@ body {
   color: var(--color-text-strong);
   font-family: var(--font-family-default);
   font-weight: var(--font-weight-regular);
-  background: var(--color-surface-warm);
+  background: #ffffff;
 }
 a {
   color: inherit;
