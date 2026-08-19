@@ -35,7 +35,8 @@
 }
 
 .main-nav {
-  display: none;
+  display: flex;
+  gap: 64px;
 }
 
 .header-actions {
@@ -52,8 +53,8 @@
 }
 
 .login-button {
-  display: none;
-  /* background-color: var(--color-brand); */
+  /* display: none; */
+  background-color: var(--color-brand);
 }
 
 /* Footer */
@@ -270,8 +271,14 @@ p {
   background: color-mix(in srgb, var(--color-white) 20%, transparent);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow-md);
-
 }
+.button-tertiary{
+  color: var(--color-text-muted);
+}
+.button-tertiary > i{
+  font-size: var(--font-size-64);
+}
+
 
 .button-glass {
   color: var(--color-white);
@@ -741,33 +748,89 @@ p {
 .adoption-banner {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   overflow: hidden;
-  min-height: 112px;
+  min-height: 160px;
   margin-top: var(--space-4xl);
   padding: var(--space-xl) var(--space-2xl);
   border-radius: var(--radius-xl);
   border: 1px solid var(--color-border-light);
-  color: var(--color-text-default);
-  background-color: #FFFBF8;
-  background-image:
-    url('../images/3.mobile/icon_m/banner_ellipse1.png'),
-    url('../images/3.mobile/icon_m/banner_ellipse2.png'),
-    url('../images/3.mobile/icon_m/banner_ellipse3.png');
-  background-repeat: no-repeat;
-  background-position: left bottom, 85% center, right top;
-  background-size: 100px, 90px, 66px;
+  color: var(--color-surface-peach);
+  background-color: var(--color-white);
+  box-shadow: none;
 }
 
-.adoption-banner>span {
-  font-size: var(--font-size-18);
+.adoption-banner .banner_text {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-md);
+}
+
+.adoption-banner .banner_title {
+  font-size: var(--font-size-24);
   font-weight: var(--font-weight-bold);
+  color: var(--color-text-strong);
+  line-height: 1.3;
 }
 
-.adoption-banner>img,
-.banner-orb {
-  display: none;
+.adoption-banner .banner_cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+}
+
+.adoption-banner:hover .banner_cta {
+  color: var(--color-brand);
+}
+
+.adoption-banner .banner_cta i {
+  font-size: 11px;
+}
+
+/* Banner CSS Circles */
+.adoption-banner .banner-circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.adoption-banner .circle-mint {
+  width: 140px;
+  height: 140px;
+  left: 14%;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--color-banner-point1);
+}
+
+.adoption-banner .circle-orange {
+  width: 280px;
+  height: 280px;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-30%);
+  background: var(--gradient-brand-diagonal);
+}
+
+.adoption-banner .circle-yellow {
+  width: 115px;
+  height: 115px;
+  right: 5%;
+  top: 15px;
+  background-color: var(--color-banner-point2);
+  opacity: 0.85;
+  z-index: 2;
 }
 
 /* 3. Community Section */
@@ -916,7 +979,7 @@ p {
 
 .card-viewport {
   position: relative;
-  width: max(669px, calc(100vw - 492px));
+  width: max(894px, calc(100vw - 492px));
   height: 407px;
   overflow: hidden;
 }
@@ -958,13 +1021,13 @@ p {
   object-fit: cover;
 }
 
-/* Shorts Container (669 * 407, Gap 10px, Shorts Card 216 * 407, Radius 32px) */
+/* Shorts Container (894 * 407, Gap 10px, Shorts Card 216 * 407, Radius 32px) */
 .shorts-container {
-  width: 669px;
+  width: 894px;
   height: 407px;
   display: flex;
   gap: 10px;
-  flex-shrink: 0;
+  flex: 0 0 894px;
 }
 
 .shorts-card {
@@ -1560,10 +1623,31 @@ p {
   }
 
   .adoption_section .adoption-banner {
-    background-position:
-      left bottom,
-      right 12px bottom 0,
-      72% bottom 8px;
+    min-height: 120px;
+    padding: var(--space-md) var(--space-lg);
+  }
+  .adoption_section .adoption-banner .banner_title {
+    font-size: var(--font-size-16);
+  }
+  .adoption_section .adoption-banner .banner_cta {
+    font-size: var(--font-size-13);
+  }
+  .adoption_section .adoption-banner .circle-mint {
+    width: 80px;
+    height: 80px;
+    left: -20px;
+  }
+  .adoption_section .adoption-banner .circle-orange {
+    width: 160px;
+    height: 160px;
+    right: -30px;
+    transform: translateY(-20%);
+  }
+  .adoption_section .adoption-banner .circle-yellow {
+    width: 70px;
+    height: 70px;
+    right: 5px;
+    top: 10px;
   }
 
   .community_section { padding: var(--space-5xl) var(--space-xl); }
@@ -1582,7 +1666,7 @@ p {
   .campaign-card, .story-video-card, .shorts-container { width: 312px; height: 190px; flex-basis: 312px; border-radius: var(--radius-lg); }
   .story-panel .card-track { flex-direction: column; gap: var(--space-lg); }
   .shorts-container { display: flex; gap: var(--space-xs); }
-  .shorts-container .shorts-card { width: calc((100% - 16px) / 3); height: 190px; border-radius: var(--radius-sm); }
+  .shorts-container .shorts-card { width: calc((100% - 24px) / 4); height: 190px; border-radius: var(--radius-sm); }
 
   .about_section { position: relative; min-height: 560px; display: block; padding: var(--space-5xl) var(--space-xl); }
   .about-images { position: absolute; inset: 0; height: auto; opacity: .45; pointer-events: none; }
@@ -1611,7 +1695,7 @@ p {
 
   .main-nav {
     display: flex;
-    gap: var(--space-2xl);
+    gap: 64px;
     color: var(--color-text-strong);
     font-size: var(--font-size-16);
     font-weight: var(--font-weight-bold);
@@ -1626,7 +1710,7 @@ p {
     padding: 10px 17px;
     border-radius: var(--radius-pill);
     color: var(--color-white);
-    background: var(--color-text-strong);
+    background: var(--color-brand);
     font-size: var(--font-size-13);
   }
 
@@ -1680,12 +1764,30 @@ p {
   }
 
   .adoption-banner {
-    background-image:
-      url('../images/2.tablet/icon_t/banner_ellipse.png'),
-      url('../images/2.tablet/icon_t/banner_ellipse2.png'),
-      url('../images/2.tablet/icon_t/banner_ellipse3.png');
-    background-position: left center, 62% center, right center;
-    background-size: 150px, 100px, 130px;
+    min-height: 150px;
+    padding: var(--space-lg) var(--space-xl);
+  }
+  .adoption-banner .banner_title {
+    font-size: var(--font-size-20);
+  }
+  .adoption-banner .banner_cta {
+    font-size: var(--font-size-14);
+  }
+  .adoption-banner .circle-mint {
+    width: 110px;
+    height: 110px;
+    left: 8%;
+  }
+  .adoption-banner .circle-orange {
+    width: 220px;
+    height: 220px;
+    right: 5%;
+  }
+  .adoption-banner .circle-yellow {
+    width: 90px;
+    height: 90px;
+    right: 3%;
+    top: 12px;
   }
 
   .showcase-carousel .carousel-item {
@@ -1945,13 +2047,7 @@ p {
   }
 
   .adoption-banner {
-    min-height: 182px;
-    background-image:
-      url('../images/1.pc/icon/banner_ellipse1.png'),
-      url('../images/1.pc/icon/banner_ellipse2.png'),
-      url('../images/1.pc/icon/banner_ellipse3.png');
-    background-position: 42% center, 65% 65%, right top;
-    background-size: 125px, 92px, 280px;
+    min-height: 160px;
   }
 
   .lost-track article {
@@ -2001,7 +2097,7 @@ p {
   }
 
   .floating-actions {
-    right: 15.5vw;
+    right: max(var(--space-xl), calc((100vw - 1368px) / 2));
   }
 }
 
@@ -2026,7 +2122,7 @@ p {
 
   /* 카드 뷰포트 (슬라이더/캐러셀 영역) */
   .card-viewport {
-    width: max(669px, calc(100vw - 492px));
+    width: max(894px, calc(100vw - 492px));
     height: 407px;
     overflow: hidden;
   }
@@ -2036,14 +2132,12 @@ p {
     gap: 24px;
   }
 
-  /* 메인 카드 요소들 (캠페인, 스토리 비디오, 쇼츠 컨테이너) */
+  /* 메인 카드 요소들 (캠페인, 스토리 비디오) */
   .campaign-card,
-  .story-video-card,
-  .shorts-container {
+  .story-video-card {
     width: 669px;
     height: 407px;
     flex: 0 0 669px;
-    overflow: hidden;
     border-radius: var(--radius-2xl);
   }
 
@@ -2055,11 +2149,13 @@ p {
     object-fit: cover;
   }
 
-  /* 쇼츠 카드 개별 레이아웃 (669px 안에 216px 짜리 카드 3개 배치용) */
+  /* 쇼츠 카드 개별 레이아웃 (894px 안에 216px 짜리 카드 4개 배치용) */
   .shorts-container {
+    width: 894px;
+    height: 407px;
+    flex: 0 0 894px;
     display: flex;
     gap: 10px;
-    overflow: hidden;
     border-radius: var(--radius-2xl);
   }
 
