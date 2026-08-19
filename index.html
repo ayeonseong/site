@@ -7,8 +7,11 @@
   <link rel="stylesheet" href="./style/token.css">
   <link rel="stylesheet" href="./style/main.css">
   <link rel="shortcut icon" href="./images/favicon/pawinhand.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <script src="./jq/jquery-4.0.0.min.js"></script>
   <script src="./js/index.js"></script>
+  <script src="https://kit.fontawesome.com/657c57e5c5.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header class="site-header">
@@ -28,7 +31,9 @@
       </nav>
       <div class="header-actions">
         <img src="./images/1.pc/icon/header_heart.png" alt="관심 동물" class="header-heart">
-        <a class="login-button" href="#">로그인</a>
+        <a class="login-button" href="#">
+          <i class="fa-regular fa-user"></i> 로그인
+        </a>
         <img class="mobile-menu" src="./images/3.mobile/icon_m/header_menu.png" alt="메뉴">
       </div>
     </div>
@@ -137,7 +142,10 @@
         <p class="eyebrow">AI MATCHING</p>
         <h2>나와 잘 맞는 반려동물을<br>찾아볼까요?</h2>
         <p>몇 가지 질문으로, 나와 잘 맞는 가족을 만나보세요.</p>
-        <a class="button button-primary" href="#">AI 매칭 시작하기 ↗</a>
+        <div class="btn">
+          <a class="button button-primary" href="#">AI 매칭 시작하기 ↗</a>
+          <a class="button button-secondary" href="#">전체입양동물 보기</a>
+        </div>
       </div>
     </section>
 
@@ -363,18 +371,6 @@
                   <img src="./images/story_img/y2.avif" alt="포인핸드 스토리 영상 2">
                 </article>
 
-                <div class="shorts-container">
-                  <article class="shorts-card">
-                    <img src="./images/story_img/s2.avif" alt="스토리 숏츠 2">
-                  </article>
-                  <article class="shorts-card">
-                    <img src="./images/story_img/s3.avif" alt="스토리 숏츠 3">
-                  </article>
-                  <article class="shorts-card">
-                    <img src="./images/story_img/s4.avif" alt="스토리 숏츠 4">
-                  </article>
-                </div>
-
                 <article class="story-video-card">
                   <img src="./images/story_img/y3.avif" alt="포인핸드 스토리 영상 3">
                 </article>
@@ -550,5 +546,9 @@
   </div>
   
   <script src="./js/index.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+
 </body>
 </html>
