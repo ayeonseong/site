@@ -40,11 +40,11 @@ $(function () {
 
   $('#commNextBtn').on('click', function () {
     if (activeTab === 'campaign') {
-      var max = $('.campaign-panel .card-track').children().length - 1;
+      var max = $('.campaign-panel .card-track').children(':visible').length - 1;
       if (campaignIndex < max) campaignIndex++;
       $('.campaign-panel .card-track').css('transform', 'translateX(-' + (campaignIndex * cardStep) + 'px)');
     } else {
-      var max = $('.story-panel .card-track').children().length - 1;
+      var max = $('.story-panel .card-track').children(':visible').length - 1;
       if (storyIndex < max) storyIndex++;
       $('.story-panel .card-track').css('transform', 'translateX(-' + (storyIndex * cardStep) + 'px)');
     }
