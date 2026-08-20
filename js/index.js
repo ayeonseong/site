@@ -71,6 +71,64 @@ $(function () {
     }
   });
 
+  // Top Floating Button: Smooth scroll to top of page
+  $('.floating_btn.top').on('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Adoption Section jQuery Carousel Slide
+  var adoptionIndex = 0;
+  function getAdoptionStep() {
+    var $card = $('.pet-card').first();
+    return $card.length ? ($card.outerWidth() + 24) : 347;
+  }
+
+  $('.adoption_section .arrow-left').on('click', function (e) {
+    e.preventDefault();
+    var totalCards = $('.pet-card').length;
+    if (adoptionIndex > 0) {
+      adoptionIndex--;
+    } else {
+      adoptionIndex = totalCards - 1;
+    }
+    $('.pet-track').css('transform', 'translateX(-' + (adoptionIndex * getAdoptionStep()) + 'px)');
+  });
+
+  $('.adoption_section .arrow-right').on('click', function (e) {
+    e.preventDefault();
+    var totalCards = $('.pet-card').length;
+    var visibleCards = window.innerWidth <= 563 ? 1 : (window.innerWidth <= 1343 ? 2 : 4);
+    var maxIndex = totalCards - visibleCards;
+    if (maxIndex <= 0) maxIndex = totalCards - 1;
+
+    if (adoptionIndex < maxIndex) {
+      adoptionIndex++;
+    } else {
+      adoptionIndex = 0;
+    }
+    $('.pet-track').css('transform', 'translateX(-' + (adoptionIndex * getAdoptionStep()) + 'px)');
+  });
+
+  // Touch Swipe Gesture for Adoption Carousel
+  var touchStartX = 0;
+  var touchEndX = 0;
+  $('.adoption_section .viewport').on('touchstart', function (e) {
+    touchStartX = e.originalEvent.touches[0].clientX;
+  });
+
+  $('.adoption_section .viewport').on('touchend', function (e) {
+    touchEndX = e.originalEvent.changedTouches[0].clientX;
+    var swipeDist = touchStartX - touchEndX;
+    if (Math.abs(swipeDist) > 30) {
+      if (swipeDist > 0) {
+        $('.adoption_section .arrow-right').trigger('click');
+      } else {
+        $('.adoption_section .arrow-left').trigger('click');
+      }
+    }
+  });
+
   // Header scroll handler: 70% opacity in hero, < 70% (50%) past hero
   function checkHeaderScroll() {
     var $hero = $('.hero');

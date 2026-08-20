@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <script src="./jq/jquery-4.0.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script src="./js/index.js"></script>
   <script src="https://kit.fontawesome.com/657c57e5c5.js" crossorigin="anonymous"></script>
 </head>
@@ -321,15 +322,6 @@
             </div>
             <a href="#" class="community-cta" id="communityCta">캠페인 더보기 <i>&gt;</i></a>
           </div>
-
-          <div class="community-nav">
-            <button type="button" class="arrow_btn arrow-left" id="commPrevBtn" aria-label="이전">
-              <img src="./images/1.pc/icon/btn_arrow2_left.svg" alt="이전">
-            </button>
-            <button type="button" class="arrow_btn arrow-right" id="commNextBtn" aria-label="다음">
-              <img src="./images/1.pc/icon/btn_arrow2_rignt.svg" alt="다음">
-            </button>
-          </div>
         </div>
 
         <!-- Right Content Cards -->
@@ -359,17 +351,27 @@
             <div class="card-viewport">
               <div class="card-track">
                 <article class="story-video-card">
-                  <img src="./images/story_img/y1.avif" alt="포인핸드 스토리 영상 1">
+                  <div class="video-thumb">
+                    <img src="./images/story_img/y1.avif" alt="유기견 입양하려 반차 쓰고 강원도 다녀온 이야기 | Vlog | 포인핸드">
+                    <button type="button" class="play-btn" aria-label="재생">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffffff"><path d="M8 5v14l11-7z"/></svg>
+                    </button>
+                  </div>
+                  <div class="video-info">
+                    <h3>유기견 입양하려 반차 쓰고 강원도 다녀온 이야기 | Vlog | 포인핸드</h3>
+                    <p><span>pawinhand_official</span> <span>조회수 10만</span></p>
+                  </div>
                 </article>
 
-                <article class="story-video-card">
-                  <img src="./images/story_img/y2.avif" alt="포인핸드 스토리 영상 2">
-                </article>
-                
-                <article class="story-video-card">
-                  <img src="./images/story_img/y3.avif" alt="포인핸드 스토리 영상 3">
-                </article>
-                
+                <div class="story-social-row">
+                  <a href="#" class="story-social-cta">더 많은 이야기 보기 <i>&gt;</i></a>
+                  <div class="story-social-icons">
+                    <a href="#" aria-label="유튜브"><img src="./images/3.mobile/icon_m/story_icon1.png" alt="유튜브"></a>
+                    <a href="#" aria-label="인스타그램"><img src="./images/3.mobile/icon_m/story_icon2.png" alt="인스타그램"></a>
+                    <a href="#" aria-label="X"><img src="./images/3.mobile/icon_m/story_icon3.png" alt="X"></a>
+                  </div>
+                </div>
+
                 <div class="shorts-container">
                   <article class="shorts-card">
                     <img src="./images/story_img/s1.avif" alt="스토리 숏츠 1">
@@ -380,12 +382,19 @@
                   <article class="shorts-card">
                     <img src="./images/story_img/s3.avif" alt="스토리 숏츠 3">
                   </article>
-                  <article class="shorts-card">
-                    <img src="./images/story_img/s4.avif" alt="스토리 숏츠 4">
-                  </article>
                 </div>
               </div>
             </div>
+          </div>
+
+          <!-- Navigation Arrow Buttons -->
+          <div class="community-nav">
+            <button type="button" class="arrow_btn arrow-left" id="commPrevBtn" aria-label="이전">
+              <img src="./images/1.pc/icon/btn_arrow2_left.svg" alt="이전">
+            </button>
+            <button type="button" class="arrow_btn arrow-right" id="commNextBtn" aria-label="다음">
+              <img src="./images/1.pc/icon/btn_arrow2_rignt.svg" alt="다음">
+            </button>
           </div>
         </div>
       </div>
@@ -403,6 +412,27 @@
       </div>
       <div class="lost-wall viewport">
         <div class="carousel-track lost-track">
+          <article>
+            <img src="./images/found_img/f1.png" alt="실종 동물">
+            <b>보리</b>
+            <span>서울시 강남구</span>
+          </article>
+          <article>
+            <img src="./images/found_img/f2.jpg" alt="실종 동물">
+            <b>몽이</b>
+            <span>경기도 성남시</span>
+          </article>
+          <article>
+            <img src="./images/found_img/f3.jpg" alt="실종 동물">
+            <b>코코</b>
+            <span>서울시 마포구</span>
+          </article>
+          <article>
+            <img src="./images/found_img/f4.jpg" alt="실종 동물">
+            <b>두부</b>
+            <span>경기도 고양시</span>
+          </article>
+          <!-- Infinite Loop Copy -->
           <article>
             <img src="./images/found_img/f1.png" alt="실종 동물">
             <b>보리</b>
@@ -445,6 +475,27 @@
             <b>콩이</b>
             <span>경기도 수원시</span>
           </article>
+          <!-- Infinite Loop Copy -->
+          <article>
+            <img src="./images/found_img/f5.jpg" alt="실종 동물">
+            <b>호두</b>
+            <span>서울시 송파구</span>
+          </article>
+          <article>
+            <img src="./images/found_img/f6.jpg" alt="실종 동물">
+            <b>별이</b>
+            <span>경기도 용인시</span>
+          </article>
+          <article>
+            <img src="./images/found_img/f7.jpg" alt="실종 동물">
+            <b>하니</b>
+            <span>서울시 동작구</span>
+          </article>
+          <article>
+            <img src="./images/found_img/f8.jpg" alt="실종 동물">
+            <b>콩이</b>
+            <span>경기도 수원시</span>
+          </article>
         </div>
       </div>
     </section>
@@ -458,10 +509,13 @@
       <div class="about-copy">
         <p class="eyebrow">PAWINHAND</p>
         <h2>우리는 더욱 책임있는<br>입양을 만듭니다.</h2>
-        <p>포인핸드는 유기동물 입양문화가 더 건강해질 수 있도록 기술과 데이터, 사람의 마음을 연결합니다.</p>
-        <p>모든 생명이 존중받는 세상을 위해 포인핸드는 오늘도 노력합니다.</p>
+        <p>
+          포인핸드는 유기동물 입양문화가 더 건강해질 수 있도록 <br> 
+          기술과 데이터, 사람의 마음을 연결합니다.
+        </p>
+        <p><b>모든 생명이 존중받는 세상을 위해 포인핸드는 오늘도 노력합니다.</b></p>
         <a href="#" class="button about-cta">
-          <img src="./images/1.pc/icon/about_heart.png" alt="">포인핸드 후원하기 <span>↗</span>
+          <img src="./images/1.pc/icon/about_heart.png" alt="">후원으로 함께하기
         </a>
       </div>
     </section>
@@ -519,25 +573,32 @@
   </main>
 
   <footer class="site-footer">
-    <div>
-      <img src="./images/1.pc/main_logo_pc.png" alt="포인핸드">
-      <p>유기동물과 새로운 가족을 연결합니다.</p>
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="f_title_box">
+          <img src="./images/1.pc/main_logo_pc.png" alt="포인핸드">
+          <p>유기동물과 새로운 가족을 연결합니다.</p>
+        </div>
+        <div class="footer-top-right">
+          <nav>
+            <a href="#">고객센터</a>
+            <a href="#">이용약관</a>
+            <a href="#">개인정보처리방침</a>
+            <a href="#">문의하기</a>
+          </nav>
+          <span class="v-divider"></span>
+          <div class="footer-social">
+            <a href="#"><img src="./images/1.pc/icon/footer_icon1.png" alt="인스타그램"></a>
+            <a href="#"><img src="./images/1.pc/icon/footer_icon2.png" alt="유튜브"></a>
+            <a href="#"><img src="./images/1.pc/icon/footer_icon3.png" alt="X"></a>
+          </div>
+        </div>
+      </div>
+      <small class="footer-bottom">
+        <div>© PAWINHAND. All rights reserved.</div>
+        <div>Every family starts with a meeting.</div>
+      </small>
     </div>
-    <nav>
-      <a href="#">고객센터</a>
-      <a href="#">이용약관</a>
-      <a href="#">개인정보처리방침</a>
-      <a href="#">문의하기</a>
-    </nav>
-    <div class="footer-social">
-      <a href="#"><img src="./images/1.pc/icon/footer_icon1.png" alt="인스타그램"></a>
-      <a href="#"><img src="./images/1.pc/icon/footer_icon2.png" alt="유튜브"></a>
-      <a href="#"><img src="./images/1.pc/icon/footer_icon3.png" alt="X"></a>
-    </div>
-    <small>
-      <div>© PAWINHAND. All rights reserved.</div>
-      <div>Every family starts with a meeting.</div>
-    </small>
   </footer>
 
   <div class="floating-actions">
